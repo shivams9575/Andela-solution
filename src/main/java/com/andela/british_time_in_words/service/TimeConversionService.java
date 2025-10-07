@@ -3,6 +3,7 @@ package com.andela.british_time_in_words.service;
 import com.andela.british_time_in_words.exception.InvalidTimeFormatException;
 import com.andela.british_time_in_words.factory.TimeFormatterFactory;
 import com.andela.british_time_in_words.formatter.TimeFormatterStrategy;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalTime;
@@ -12,19 +13,9 @@ import java.time.format.DateTimeParseException;
 @Service
 public class TimeConversionService {
 
-    private final TimeFormatterFactory factory;
+    @Autowired
+    private TimeFormatterFactory factory;
 
-    public TimeConversionService(TimeFormatterFactory factory) {
-        this.factory = factory;
-    }
-
-    /**
-     * Converts input time string into spoken form for a given locale.
-     *
-     * @param timeString input time in HH:mm format
-     * @param locale     locale identifier (e.g., "british")
-     * @return spoken representation of time
-     */
     public String convert(String timeString, String locale) {
         try {
             LocalTime time = LocalTime.parse(timeString, DateTimeFormatter.ofPattern("HH:mm"));
