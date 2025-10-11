@@ -37,8 +37,9 @@ jobs:
       - name: Generate JaCoCo Coverage Report
         run: mvn jacoco:report
 
-      - name: SonarCloud Analysis
-        uses: SonarSource/sonarqube-scan-action@v3
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      - name: Run SonarCloud Scan via Maven
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+          -Dsonar.projectKey=shivams9575_British-Spoken-Time-Project \
+          -Dsonar.organization=shivams9575 \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
