@@ -1,5 +1,6 @@
 package com.andela.british_time_in_words.controller;
 
+import com.andela.british_time_in_words.DTO.TimeRequest;
 import com.andela.british_time_in_words.service.TimeConversionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,10 +30,13 @@ class TimeControllerTest {
             String time = "12:30";
             String locale = "british";
             String spokenTime = "half past twelve";
+            TimeRequest req = new TimeRequest();
+            req.setTime(time);
+            req.setLocale(locale);
 
             when(timeConversionService.convert(time, locale)).thenReturn(spokenTime);
 
-            ResponseEntity<String> response = timeController.getSpokenTime(time, locale);
+            ResponseEntity<String> response = timeController.getSpokenTime(req);
 
             assertEquals(200, response.getStatusCodeValue());
             assertEquals(spokenTime, response.getBody());
@@ -46,10 +50,14 @@ class TimeControllerTest {
         String locale = "british"; // explicitly set
         String spokenTime = "quarter past nine";
 
+        TimeRequest req = new TimeRequest();
+        req.setTime(time);
+        req.setLocale(locale);
+
         when(timeConversionService.convert(time, locale)).thenReturn(spokenTime);
 
         // Pass "british" instead of null
-        ResponseEntity<String> response = timeController.getSpokenTime(time, locale);
+        ResponseEntity<String> response = timeController.getSpokenTime(req);
 
         assertEquals(200, response.getStatusCodeValue());
         assertEquals(spokenTime, response.getBody());
@@ -63,10 +71,14 @@ class TimeControllerTest {
             String time = "invalid";
             String locale = "british";
 
+            TimeRequest req = new TimeRequest();
+            req.setTime(time);
+            req.setLocale(locale);
+
             when(timeConversionService.convert(time, locale))
                     .thenThrow(new IllegalArgumentException("Invalid time format"));
 
-            ResponseEntity<String> response = timeController.getSpokenTime(time, locale);
+            ResponseEntity<String> response = timeController.getSpokenTime(req);
 
             assertEquals(500, response.getStatusCodeValue());
             assertEquals("Error: Invalid time format", response.getBody());

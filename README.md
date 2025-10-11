@@ -2,11 +2,13 @@
 
 A Spring Boot application that converts 24-hour time format (HH:mm) into British spoken time.
 
-Examples:
-- `07:30` → `half past seven`
-- `10:45` → `quarter to eleven`
-- `00:00` → `midnight`
-- `12:00` → `noon`
+### Examples
+| Input | Output |
+|--------|---------|
+| `07:30` | half past seven |
+| `10:45` | quarter to eleven |
+| `00:00` | midnight |
+| `12:00` | noon |
 
 ---
 

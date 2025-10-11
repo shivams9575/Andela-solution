@@ -1,0 +1,33 @@
+# Normalize line endings for all text files
+* text=auto
+
+# Explicitly define line endings for specific file types
+*.java text eol=lf
+*.xml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.properties text eol=lf
+
+# Binary files (should not be modified by Git)
+*.jar binary
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.zip binary
+
+# Prevent Git from diffing build artifacts
+target/** -diff
+
+# Exclude reports and generated files from diffs
+*.log -diff
+*.html -diff
+
+# Handle shell scripts correctly on Unix systems
+*.sh text eol=lf
+
+# Handle batch scripts correctly on Windows
+*.cmd text eol=crlf
+
+# Make sure GitHub linguist recognizes Java properly
+*.java linguist-language=Java
