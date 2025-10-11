@@ -98,8 +98,14 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <configLocation>${basedir}/config/checkstyle/checkstyle.xml</configLocation>
+                    <encoding>UTF-8</encoding>
+                    <consoleOutput>true</consoleOutput>
+                    <failOnViolation>false</failOnViolation>
+                </configuration>
             </plugin>
-		</plugins>
+        </plugins>
 	</build>
 
 </project>

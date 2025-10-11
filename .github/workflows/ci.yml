@@ -2,9 +2,13 @@ name: Java CI with SonarQube, JaCoCo, and Checkstyle
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - feature/*
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+      - feature/*
   workflow_dispatch:
 
 jobs:
@@ -22,17 +26,11 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build and Verify
+      - name: Build and Run Tests
         run: mvn -B clean verify
 
       - name: Run Checkstyle
         run: mvn checkstyle:checkstyle
-
-      - name: Upload Checkstyle Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: checkstyle-report
-          path: target/site/checkstyle.html
 
       - name: Generate JaCoCo Coverage Report
         run: mvn jacoco:report
