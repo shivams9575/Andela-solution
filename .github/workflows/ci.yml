@@ -5,6 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,7 +22,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build with Maven
+      - name: Build and Verify
         run: mvn -B clean verify
 
       - name: Run Checkstyle
@@ -33,10 +34,10 @@ jobs:
           name: checkstyle-report
           path: target/site/checkstyle.html
 
-      - name: Run JaCoCo Coverage Report
+      - name: Generate JaCoCo Coverage Report
         run: mvn jacoco:report
 
-      - name: SonarQube Analysis
+      - name: SonarCloud Analysis
         uses: SonarSource/sonarqube-scan-action@v3
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
