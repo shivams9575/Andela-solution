@@ -121,10 +121,10 @@ src/
 ```bash
 | Tool               | Purpose                         | Configuration                      |
 | ------------------ | ------------------------------- | ---------------------------------- |
-| **JaCoCo**         | Measures code coverage          | `pom.xml`                          |
-| **Checkstyle**     | Enforces code quality standards | `config/checkstyle/checkstyle.xml` |
-| **SonarCloud**     | Static analysis & code quality  | `.github/workflows/ci.yml`         |
-| **GitHub Actions** | CI/CD automation                | `.github/workflows/ci.yml`         |
+| JaCoCo             | Measures code coverage          | `pom.xml`                          |
+| Checkstyle         | Enforces code quality standards | `config/checkstyle/checkstyle.xml` |
+| SonarCloud         | Static analysis & code quality  | `.github/workflows/ci.yml`         |
+| GitHub Actions     | CI/CD automation                | `.github/workflows/ci.yml`         |
 ```
 
 ## 👤 Author
