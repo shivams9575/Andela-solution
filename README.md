@@ -68,22 +68,24 @@ mvnd checkstyle:checkstyle
 ```
 
 ## ⚙️ Continuous Integration (CI/CD)
-```bash
-This project uses GitHub Actions for automated CI pipelines that include:
 
+### This project uses GitHub Actions for automated CI pipelines that include:
+```bash
 ✅ Code compilation
 ✅ Unit & integration tests
 ✅ JaCoCo test coverage
 ✅ Checkstyle validation
 ✅ SonarCloud static code analysis
+```
 
-Workflow Details :-
+### Workflow Details :-
+```bash
+
 Triggered automatically on every push and pull request.
-
 Fails the build if:
-Code coverage is below 95%
-Any Sonar quality gate fails
-Checkstyle rules are violated
+❌ Code coverage is below 95%
+❌ Any Sonar quality gate fails
+❌ Checkstyle rules are violated
 ```
 
 ## 📊 Code Quality Dashboard (SonarCloud)
