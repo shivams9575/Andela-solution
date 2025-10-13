@@ -64,7 +64,7 @@ target/site/jacoco/index.html
 ```
 ### Run Checkstyle Validation
 ```bash
-mvn checkstyle:checkstyle
+mvnd checkstyle:checkstyle
 ```
 
 ## ⚙️ Continuous Integration (CI/CD)
