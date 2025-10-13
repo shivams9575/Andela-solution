@@ -31,7 +31,10 @@ public class TimeController {
             log.info("✅ Successfully converted [{}] to spoken form: [{}]", request.getTime(), spokenTime);
             return ResponseEntity.ok(spokenTime);
         } catch(Exception e){
-            log.error("Error while processing time='{}', locale='{}' → {}", request.getTime(), request.getLocale(), e.getMessage());
+            log.error(
+                    "Error while processing time='{}', locale='{}' → {}",
+                    request.getTime(), request.getLocale(), e.getMessage()
+            );
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }

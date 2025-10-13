@@ -24,8 +24,9 @@ public class TimeFormatterFactory {
     }
 
     public TimeFormatterStrategy getFormatter(String locale) {
-        if (locale == null || !formatters.containsKey(locale.toLowerCase()))
+        if (locale == null || !formatters.containsKey(locale.toLowerCase())) {
             locale = "british";
+        }
         return formatters.get(locale.toLowerCase());
     }
 }
