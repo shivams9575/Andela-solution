@@ -28,7 +28,7 @@ public class TimeController {
 
         try {
             String spokenTime = timeConversionService.convert(request.getTime(), request.getLocale());
-            log.info("✅ Successfully converted [{}] to spoken form: [{}]", request.getTime(), spokenTime);
+            log.info("Successfully converted [{}] to spoken form: [{}]", request.getTime(), spokenTime);
             return ResponseEntity.ok(spokenTime);
         } catch(Exception e){
             log.error(
