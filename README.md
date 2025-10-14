@@ -35,7 +35,7 @@ mvnd spring-boot:run
 
 #### Sample POST Request
 ```bash
-http://localhost:8080/api/v1//britishSpokenTime
+http://localhost:8080/api/v1/britishSpokenTime
 
 Request Body:
 {
